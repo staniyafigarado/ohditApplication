@@ -4,6 +4,7 @@ import { Shadow, Neomorph } from 'react-native-neomorph-shadows';
 // import { CommonStyles } from '../../../src/SharedComponents/CustomStyles';
 import LinearGradient from 'react-native-linear-gradient';
 import { ExpenseStyle } from '../AddExpenseScreen/ExpenseStyle';
+import { ProductStyle } from '../AddProductScreen/ProductStyle';
 const back = require('../../../assets/icons/back.png');
 const line = require('../../../assets/line.png');
 const dropDown = require('../../../assets/icons/dropDown.png');
@@ -34,6 +35,43 @@ const data = [
         description: 'Lorem Ipsum'
     }
 ];
+const Details = [
+    {
+        id: 1,
+        amount: '3124',
+        igst: '0.1',
+        cgst: '0.2',
+        cess: '0.12'
+    },
+    {
+        id: 2,
+        amount: '3124',
+        igst: '0.1',
+        cgst: '0.2',
+        cess: '0.12'
+    },
+    {
+        id: 3,
+        amount: '3124',
+        igst: '0.1',
+        cgst: '0.2',
+        cess: '0.12'
+    },
+    {
+        id: 4,
+        amount: '3124',
+        igst: '0.1',
+        cgst: '0.2',
+        cess: '0.12'
+    },
+    {
+        id: 5,
+        amount: '3124',
+        igst: '0.1',
+        cgst: '0.2',
+        cess: '0.12'
+    }
+]
 export default class AddExpense extends Component {
     constructor(props) {
         super(props);
@@ -92,24 +130,24 @@ export default class AddExpense extends Component {
                             >
                                 <View style={{ flexDirection: 'column', padding: 20 }}>
                                     <View style={{ flexDirection: 'row' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>Company Code : </Text>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>10204</Text>
+                                        <Text style={ProductStyle.RM12}>Company Code : </Text>
+                                        <Text style={ProductStyle.RM12}>10204</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>Invoice Date : </Text>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>26th Sept 2020</Text>
+                                        <Text style={ProductStyle.RM12}>Invoice Date : </Text>
+                                        <Text style={ProductStyle.RM12}>26th Sept 2020</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>Invoice No : </Text>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>10204</Text>
+                                        <Text style={ProductStyle.RM12}>Invoice No : </Text>
+                                        <Text style={ProductStyle.RM12}>10204</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>Refference No : </Text>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>1</Text>
+                                        <Text style={ProductStyle.RM12}>Refference No : </Text>
+                                        <Text style={ProductStyle.RM12}>1</Text>
                                     </View>
                                     <View style={{ flexDirection: 'row', marginTop: 10 }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>Currency : </Text>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010' }}>INR</Text>
+                                        <Text style={ProductStyle.RM12}>Currency : </Text>
+                                        <Text style={ProductStyle.RM12}>INR</Text>
                                     </View>
                                 </View>
                             </Neomorph>
@@ -170,54 +208,6 @@ export default class AddExpense extends Component {
                                     keyExtractor={item => item.id}
                                 // extraData={selected}
                                 />
-                                {/* <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Product 1</Text>
-                                    </View>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}>Lorem Ipsum</Text>
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Product 1</Text>
-                                    </View>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}>Lorem Ipsum</Text>
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Product 1</Text>
-                                    </View>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}>Lorem Ipsum</Text>
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Product 1</Text>
-                                    </View>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}>Lorem Ipsum</Text>
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Product 1</Text>
-                                    </View>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}>Lorem Ipsum</Text>
-                                    </View>
-                                </View>
-                                <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Total</Text>
-                                    </View>
-                                    <View style={{ width: '50%', justifyContent: 'center' }}>
-                                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}></Text>
-                                    </View>
-                                </View> */}
                             </View>
                         </Neomorph>
 
@@ -249,90 +239,28 @@ export default class AddExpense extends Component {
                                         </View>
                                     </View>
                                     <Image source={line} style={{ width: '100%', height: 2, marginTop: 10 }}></Image>
-                                    <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>3124</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.1</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.2</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.12</Text>
-                                        </View>
-                                    </View>
-                                    <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>3124</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.1</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.2</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.12</Text>
-                                        </View>
-                                    </View>
-                                    <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>3124</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.1</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.2</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.12</Text>
-                                        </View>
-                                    </View>
-                                    <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>3124</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.1</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.2</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.12</Text>
-                                        </View>
-                                    </View>
-                                    <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>3124</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.1</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.2</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>0.12</Text>
-                                        </View>
-                                    </View>
-                                    <View style={{ flexDirection: 'row', width: '100%', marginTop: 20 }}>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>5000</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>0.5</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>0.5</Text>
-                                        </View>
-                                        <View style={{ width: '25%', justifyContent: 'center' }}>
-                                            <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>0.5</Text>
-                                        </View>
-                                    </View>
+                                    {/* product details */}
+                                    <FlatList
+                                        data={Details}
+                                        renderItem={({ item }) => (
+                                            <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
+                                                <View style={{ width: '25%', justifyContent: 'center' }}>
+                                                    <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>{item.amount}</Text>
+                                                </View>
+                                                <View style={{ width: '25%', justifyContent: 'center' }}>
+                                                    <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>{item.igst}</Text>
+                                                </View>
+                                                <View style={{ width: '25%', justifyContent: 'center' }}>
+                                                    <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>{item.cgst}</Text>
+                                                </View>
+                                                <View style={{ width: '25%', justifyContent: 'center' }}>
+                                                    <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', textAlign: 'center' }}>{item.cess}</Text>
+                                                </View>
+                                            </View>
+                                        )}
+                                        keyExtractor={item => item.id}
+                                    // extraData={selected}
+                                    />
                                 </View>
                             </Neomorph>
 

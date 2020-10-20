@@ -63,8 +63,8 @@ export default class AlignItemsBasics extends Component {
                         <Text style={{ fontFamily: 'Montserrat-Bold', fontSize: 24, color: '#FFFFFF', opacity: 0.7 }} >Talk to our assistant</Text>
                         <Text style={{ fontFamily: 'Roboto-Regular', fontSize: 14, color: '#FFFFFF', opacity: 0.5 }}>ask anything</Text>
                         <TouchableOpacity
-                            // onPress={() => this.props.navigation.navigate('Modal')}
-                            onPress={() => this.toggleModal()}
+                            onPress={() => this.props.navigation.navigate('AddProductScreen')}
+                            // onPress={() => this.toggleModal()}
                             style={{ backgroundColor: '#F1F1F1', width: 144, height: 40, borderRadius: 20, justifyContent: 'center', marginTop: 15 }}>
                             <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Get Started</Text>
                         </TouchableOpacity>
