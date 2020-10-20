@@ -1,168 +1,3 @@
-// import React, { useState, useCallback } from 'react';
-// import { View, Text, TextInput, ScrollView, Image, TouchableOpacity } from 'react-native';
-// import { ExpenseStyle } from '../Screens/AddExpenseScreen/ExpenseStyle';
-// import { GiftedChat, Bubble, Send } from 'react-native-gifted-chat';
-// import LinearGradient from 'react-native-linear-gradient';
-// const character1 = require('../../assets/icons/character.png');
-// const back = require('../../assets/icons/back.png');
-// const line = require('../../assets/line.png');
-
-
-// export default function RoomScreen() {
-
-//     function renderBubble(props) {
-//         return (
-//             // Step 3: return the component
-//             <Bubble
-//                 {...props}
-//                 wrapperStyle={{
-//                     right: {
-//                         // Here is the color change
-//                         backgroundColor: '#6834B4',
-//                     }
-//                 }}
-//                 textStyle={{
-//                     right: {
-//                         color: '#fff',
-//                         fontFamily: 'Roboto-Regular', fontSize: 14
-//                     },
-//                     left: {
-//                         fontFamily: 'Roboto-Regular', fontSize: 14
-//                     }
-//                 }}
-//             />
-//         );
-//     }
-//     const [messages, setMessages] = useState([
-//         /**
-//          * Mock message data
-//          */
-//         // example of system message
-//         {
-//             _id: 1,
-//             user: {
-//                 _id: 2,
-//                 avatar: character1,
-//             },
-//         },
-//         {
-//             _id: 2,
-//             text: 'Choose any option',
-//             createdAt: new Date(),
-//             avatar: character1,
-//             quickReplies: {
-//                 type: 'radio', // or 'checkbox',
-//                 keepIt: true,
-//                 values: [
-//                     {
-//                         title: 'Add New Details',
-//                         value: 'add',
-//                     },
-//                     {
-//                         title: 'View Your Details',
-//                         value: 'view',
-//                     },
-//                 ],
-//             }
-
-//         },
-//         {
-//             _id: 3,
-//             user: {
-//                 _id: 2,
-//                 avatar: character1,
-//             },
-//         },
-//         {
-//             _id: 4,
-//             text: 'Do you want to register a new company or not ?',
-//             createdAt: new Date(),
-//             avatar: character1,
-//             quickReplies: {
-//                 type: 'radio', // or 'checkbox',
-//                 keepIt: true,
-//                 values: [
-//                     {
-//                         title: 'Yes',
-//                         value: 'yes',
-//                     },
-//                     {
-//                         title: 'No',
-//                         value: 'no',
-//                     },
-//                 ],
-//             }
-
-//         },
-//         {
-//             _id: 5,
-//             user: {
-//                 _id: 2,
-//                 avatar: character1,
-//             },
-//         },
-//         {
-//             _id: 6,
-//             text: 'Weclome to Ohdit account section',
-//             user: {
-//                 _id: 2,
-//             },
-//         }, {
-//             _id: 7,
-//             text: 'Hello',
-//             createdAt: new Date(),
-//             user: {
-//                 _id: 2,
-//             },
-//         },
-//     ]);
-
-//     // helper method that is sends a message
-//     function handleSend(newMessage = []) {
-//         setMessages(GiftedChat.append(messages, newMessage));
-//     }
-//     const onSend = useCallback((messages = []) => {
-//         setMessages((previousMessages) =>
-//             GiftedChat.append(previousMessages, messages)
-//         );
-//     }, []);
-
-//     return (
-//         <LinearGradient
-//             useAngle={true}
-//             angle={90}
-//             start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
-//             colors={['#6834b4', '#512097']} style={{ flex: 1, }}>
-//             <View style={{ padding: 20, }}>
-//                 <View style={ExpenseStyle.headerStyle}>
-//                     <TouchableOpacity
-//                         onPress={() => this.props.navigation.navigate('HomeScreen')}
-//                         style={{ alignSelf: 'flex-start', alignSelf: 'center', padding: 10 }}>
-//                         <Image source={back} style={{ width: 18, height: 18 }}></Image>
-//                     </TouchableOpacity>
-//                     <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 20, color: '#FFFFFF', marginLeft: 20 }}>Add Product</Text>
-//                 </View>
-//             </View>
-//             <View style={{ backgroundColor: '#F1F1F1', flex: 1, borderTopLeftRadius: 30, borderTopRightRadius: 30, paddingBottom: 55 }}>
-//                 <Image source={line} style={{ width: 50, height: 5, alignSelf: 'center' }}></Image>
-//                 <TouchableOpacity style={{ flex: 1 }}>
-//                     <GiftedChat
-//                         messages={messages}
-//                         onSend={(messages) => onSend(messages)}
-//                         user={{ _id: 1 }}
-//                         renderBubble={renderBubble}
-//                         showUserAvatar
-//                     // onQuickReply={this.onQuickReply()}
-
-//                     />
-
-
-//                 </TouchableOpacity>
-//             </View>
-
-//         </LinearGradient>
-//     );
-// }
 import React from 'react';
 import {
     StyleSheet,
@@ -171,7 +6,7 @@ import {
     Text,
     Dimensions,
     BackHandler,
-    SafeAreaView,
+    SafeAreaView, Image, TouchableOpacity
 } from 'react-native';
 import { GiftedChat, Send, MessageImage, Bubble } from 'react-native-gifted-chat';
 import { DirectLine } from 'asksuite-botframework-directlinejs';
@@ -181,6 +16,11 @@ import Icons from 'react-native-vector-icons/Ionicons';
 import { IdGenerator } from '../SharedComponents/CustomElements';
 // import CustomModal from '../SharedComponents/Modal';
 import axios from 'axios';
+import { ExpenseStyle } from '../Screens/AddExpenseScreen/ExpenseStyle';
+import LinearGradient from 'react-native-linear-gradient';
+const character1 = require('../../assets/icons/character.png');
+const back = require('../../assets/icons/back.png');
+const line = require('../../assets/line.png');
 const { height, width } = Dimensions.get('window');
 const botMessageToGiftedMessage = (botMessage) => ({
     // messege from chatBot passed to giftedMessage chatting
@@ -241,21 +81,21 @@ function renderBubble(props) {
             {...props}
             wrapperStyle={{
                 right: {
-                    backgroundColor: '#6646ee',
-                    borderRadius: 5,
+                    backgroundColor: '#6834B4',
+                    borderRadius: 10
                 },
                 left: {
-                    borderRadius: 5,
+                    borderRadius: 10, backgroundColor: '#6834B4'
                 },
             }}
             textStyle={{
                 right: {
                     color: '#fff',
-                    fontSize: 15,
+                    fontFamily: 'Roboto-Regular', fontSize: 14
                 },
                 left: {
-                    fontSize: 15,
-                },
+                    fontFamily: 'Roboto-Regular', fontSize: 14, color: 'white'
+                }
             }}
         />
     );
@@ -329,8 +169,7 @@ export default class OhditAccount extends React.Component {
             text: 'Hello! 👋 Welcome to Ohdit Account Section',
             user: {
                 _id: 2,
-                avatar:
-                    'https://cdn.iconscout.com/public/images/icon/free/png-512/avatar-user-business-man-399587fe24739d5a-512x512.png',
+                avatar: character1,
             },
             _id: IdGenerator(),
             createdAt: new Date(Date.now()),
@@ -371,12 +210,12 @@ export default class OhditAccount extends React.Component {
         // when user taps quick Replies
         quickReply.forEach((message) => {
             if (message.value === 'Add new details') {
-                this.props.navigation.navigate('HomeScreen', {
+                this.props.navigation.navigate('AddExpenseScreen', {
                     CompanyCode: this.state.SelectCompanyCode,
                 });
             }
             if (message.value === 'View your details') {
-                this.props.navigation.navigate('RegisterScreeen', {
+                this.props.navigation.navigate('AddProductScreen', {
                     // userId: this.state.UserCredentials.UserId,
                     CompanyCode: this.state.SelectCompanyCode,
                 });
@@ -403,7 +242,7 @@ export default class OhditAccount extends React.Component {
         });
         messages.forEach((message) => {
             this.directLine
-                .postActivity(giftedMessageToBotMessage(message, '123456'))
+                .postActivity(giftedMessageToBotMessage(message, '111'))
                 .subscribe();
         });
     };
@@ -457,65 +296,61 @@ export default class OhditAccount extends React.Component {
     };
     render() {
         return (
-            <SafeAreaView style={{ flex: 1, paddingBottom: 60 }}>
-                <View style={styles.container}>
-                    {/* <Modal
-          isVisible={this.state.isModalVisible}
-          animationIn="bounceInUp"
-          onBackdropPress={() => this.setState({isModalVisible: false})}
-          style={{justifyContent: 'flex-end'}}>
-          <View
-            style={{
-              height: height / 4,
-              width: width,
-              backgroundColor: 'white',
-              alignSelf: 'center',
-              bottom: -20,
-              position: 'absolute',
-            }}>
-            <Text>Hello!</Text>
-          </View>
-        </Modal> */}
-                    {/* <CustomModal
-                        isVisible={this.state.isModalVisible}
-                        hide={() => this.setState({ isModalVisible: false })}
-                        onImagePick={this.onPickImage}
-                    /> */}
-                    <GiftedChat
-                        showUserAvatar
-                        showAvatarForEveryMessage
-                        textInputStyle={{ left: 30 }}
-                        user={{
-                            _id: 1,
-                        }}
-                        messages={this.state.messages}
-                        quickReply={this.state.messages.quickReplies}
-                        onSend={this.onSend}
-                        renderMessageImage={this.renderMessageImage}
-                        renderSend={renderSend}
-                        renderBubble={renderBubble}
-                        onInputTextChanged={(botText) => this.onInputTextChanged(botText)}
-                        onQuickReply={this.onQuickReply}
-                    />
-
-                    <Icons
-                        name="attach"
-                        color="#5B47E0"
-                        style={{
-                            position: 'absolute',
-                            bottom: 7,
-                            transform: [{ rotate: '135deg' }],
-                            left: 10,
-                        }}
-                        size={30}
-                        allowFontScaling={false}
-                        onPress={() => {
-                            // this.setState({isModalVisible: true});
-                            // this.props.navigation.navigate('AddNew');
-                        }}
-                    />
+            <LinearGradient
+                useAngle={true}
+                angle={90}
+                start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}
+                colors={['#6834b4', '#512097']} style={{ flex: 1 }}>
+                <View style={{ padding: 20 }}>
+                    <View style={ExpenseStyle.headerStyle}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('HomeScreen')}
+                            style={{ alignSelf: 'flex-start', alignSelf: 'center', padding: 10 }}>
+                            <Image source={back} style={{ width: 18, height: 18 }}></Image>
+                        </TouchableOpacity>
+                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 20, color: '#FFFFFF', marginLeft: 20 }}>Add Product</Text>
+                    </View>
                 </View>
-            </SafeAreaView>
+                <View style={{ backgroundColor: '#F1F1F1', flex: 1, borderTopLeftRadius: 30, borderTopRightRadius: 30, }}>
+                    <Image source={line} style={{ width: 50, height: 5, alignSelf: 'center' }}></Image>
+                    <View style={{ flex: 1 }}>
+                        <View style={styles.container}>
+                            <GiftedChat
+                                showUserAvatar={character1}
+                                showAvatarForEveryMessage
+                                textInputStyle={{ left: 30 }}
+                                user={{
+                                    _id: 1,
+                                }}
+                                messages={this.state.messages}
+                                quickReply={this.state.messages.quickReplies}
+                                onSend={this.onSend}
+                                renderMessageImage={this.renderMessageImage}
+                                renderSend={renderSend}
+                                renderBubble={renderBubble}
+                                onInputTextChanged={(botText) => this.onInputTextChanged(botText)}
+                                onQuickReply={this.onQuickReply}
+                            />
+
+                            <Icons
+                                name="attach"
+                                color="#5B47E0"
+                                style={{
+                                    position: 'absolute',
+                                    bottom: 5,
+                                    transform: [{ rotate: '90deg' }],
+                                    left: 10,
+                                }}
+                                size={30}
+                                allowFontScaling={false}
+                                onPress={() => {
+                                    // this.setState({isModalVisible: true});
+                                    // this.props.navigation.navigate('AddNew');
+                                }}
+                            />
+                        </View>
+                    </View>
+                </View>
+            </LinearGradient>
         );
     }
 }

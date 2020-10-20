@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TextInput, ScrollView, Image, TouchableOpacity } from 'react-native';
+import { View, Text, TextInput, ScrollView, Image, TouchableOpacity, FlatList } from 'react-native';
 import { Shadow, Neomorph } from 'react-native-neomorph-shadows';
 // import { CommonStyles } from '../../../src/SharedComponents/CustomStyles';
 import LinearGradient from 'react-native-linear-gradient';
@@ -7,7 +7,33 @@ import { ExpenseStyle } from '../AddExpenseScreen/ExpenseStyle';
 const back = require('../../../assets/icons/back.png');
 const line = require('../../../assets/line.png');
 const dropDown = require('../../../assets/icons/dropDown.png');
-
+const data = [
+    {
+        id: '1',
+        productName: 'Product1',
+        description: 'Lorem Ipsum'
+    },
+    {
+        id: '2',
+        productName: 'Product1',
+        description: 'Lorem Ipsum'
+    },
+    {
+        id: '3',
+        productName: 'Product1',
+        description: 'Lorem Ipsum'
+    },
+    {
+        id: '4',
+        productName: 'Product1',
+        description: 'Lorem Ipsum'
+    },
+    {
+        id: '5',
+        productName: 'Product1',
+        description: 'Lorem Ipsum'
+    }
+];
 export default class AddExpense extends Component {
     constructor(props) {
         super(props);
@@ -128,7 +154,23 @@ export default class AddExpense extends Component {
                                     </View>
                                 </View>
                                 <Image source={line} style={{ width: '100%', height: 2, marginTop: 10 }}></Image>
-                                <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
+                                {/* Product list */}
+                                <FlatList
+                                    data={data}
+                                    renderItem={({ item }) => (
+                                        <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
+                                            <View style={{ width: '50%', justifyContent: 'center' }}>
+                                                <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>{item.productName}</Text>
+                                            </View>
+                                            <View style={{ width: '50%', justifyContent: 'center' }}>
+                                                <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}>{item.description}</Text>
+                                            </View>
+                                        </View>
+                                    )}
+                                    keyExtractor={item => item.id}
+                                // extraData={selected}
+                                />
+                                {/* <View style={{ flexDirection: 'row', width: '100%', marginTop: 10 }}>
                                     <View style={{ width: '50%', justifyContent: 'center' }}>
                                         <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 14, color: '#101010', textAlign: 'center' }}>Product 1</Text>
                                     </View>
@@ -175,7 +217,7 @@ export default class AddExpense extends Component {
                                     <View style={{ width: '50%', justifyContent: 'center' }}>
                                         <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#101010', textAlign: 'center' }}></Text>
                                     </View>
-                                </View>
+                                </View> */}
                             </View>
                         </Neomorph>
 

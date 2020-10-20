@@ -21,17 +21,15 @@ export default class AlignItemsBasics extends Component {
                                 placeholder={'Confirm Password '}></TextInput>
                         </Neomorph>
                     </Neomorph>
-                    <Neomorph
-                        inner={false} // <- enable shadow inside of neomorph
-                        swapShadows // <- change zIndex of each shadow color
-                        style={CommonStyles.customButtonPrimary}
-                    >
-                        <TouchableOpacity
-                            onPress={() => this.props.navigation.navigate('ResetPasswordScreen')}
-                            style={{ paddingHorizontal: 90, paddingVertical: 10 }}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('ResetPasswordScreen')}>
+                        <Neomorph
+                            inner={false} // <- enable shadow inside of neomorph
+                            swapShadows // <- change zIndex of each shadow color
+                            style={CommonStyles.customButtonPrimary}
+                        >
                             <Text style={CommonStyles.buttonTxtPrimary}>Send Reset Link</Text>
-                        </TouchableOpacity>
-                    </Neomorph>
+                        </Neomorph>
+                    </TouchableOpacity>
                 </View>
             </View>
         );

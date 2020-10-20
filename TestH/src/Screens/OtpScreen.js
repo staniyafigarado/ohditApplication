@@ -55,17 +55,18 @@ export default class AlignItemsBasics extends Component {
                                 </Neomorph>
                             </Neomorph>
                         </View>
-
+                        {/* Submit button */}
                         <Neomorph
                             inner={false} // <- enable shadow inside of neomorph
                             swapShadows // <- change zIndex of each shadow color
                             style={CommonStyles.customButtonPrimary}
                         >
-                            <Text style={{ color: '#FFFFFF', fontFamily: 'Roboto-Medium', fontSize: 18 }}>Submit</Text>
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('HomeScreen')}
+                                style={{ paddingHorizontal: 100, paddingVertical: 10 }}>
+                                <Text style={{ color: '#FFFFFF', fontFamily: 'Roboto-Medium', fontSize: 18 }}>Submit</Text>
+                            </TouchableOpacity>
                         </Neomorph>
-
-
-
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 25 }}>
                         <Text style={CommonStyles.txtPrimary}>Don't receive code?</Text>

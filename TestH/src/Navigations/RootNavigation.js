@@ -33,12 +33,14 @@ import HomeScreen from '../Screens/HomeScreen';
 import TeamScreen from '../Screens/TeamScreen';
 import ShareScreen from '../Screens/ShareScreen';
 import SettingsScreen from '../Screens/SettingsScreen';
+import Modal from '../Screens/CustomModel';
 // import Logout from '../Screens/Logot';
 import ChatBoat from '../Screens/ChatBoat';
 import AddExpenseScreen from '../Screens/AddExpenseScreen';
 import AddProductScreen from '../Screens/AddProductScreen';
 import AddProductScreen1 from '../Screens/AddProductscreen1';
 import AddProductDetailsScreen from '../Screens/AddProductDetailsScreen';
+import DrawerContentModel from '../SharedComponents/DrawerComponent';
 const { width, height } = Dimensions.get('window');
 const close = require('../../assets/icons/close.png');
 const ohdit = require('../../assets/icons/ohdit.png');
@@ -49,37 +51,18 @@ const share = require('../../assets/icons/share.png');
 const settings = require('../../assets/icons/settings.png');
 const logout = require('../../assets/icons/logout.png');
 const DrawerContent = (props) => (
-    <View style={{ backgroundColor: '#F1F1F1' }}>
-        <View
-            style={{
-                height: height * .2,
-                justifyContent: 'center',
-                padding: width * .05,
-            }}
-        >
-            <View style={{ height: height * 0.1, flexDirection: 'row', alignItems: 'center', width: '100%' }} >
-                <View style={{ justifyContent: 'center', width: '90%' }}>
-                    <Image source={ohdit} style={{ width: 91, height: 36 }}></Image>
-                </View>
-                <View style={{ justifyContent: 'center', width: '10%' }}>
-                    <TouchableOpacity style={{ padding: 5 }}
-                    // onPress={() => this._drawer.close()}
-                    >
-                        <Image source={close} style={{ width: 18, height: 18, marginLeft: 5 }}></Image>
-                    </TouchableOpacity>
-                </View>
-            </View>
-        </View>
+    <View>
+        <DrawerContentModel />
         <View style={{ height: height * .7, padding: width * .05, justifyContent: 'space-around' }}>
             <ScrollView>
-                <DrawerItems {...props} labelStyle={{ fontFamily: 'Roboto-Regular', fontSize: 14 }} />
+                <DrawerItems {...props} />
             </ScrollView>
         </View>
-
         <View style={{}}>
             {/* Bottom view */}
         </View>
     </View>
+
 );
 class App extends React.Component {
 
@@ -141,7 +124,12 @@ class App extends React.Component {
 const TabNavigator = createBottomTabNavigator(
     {
         ChatBoat: { screen: ChatBoat },
-        HomeScreen: { screen: HomeScreen },
+        HomeScreen: {
+            screen: HomeScreen,
+            navigationOptions: {
+                tabBarVisible: false
+            }
+        },
         RegisterScreen: { screen: RegisterScreen },
     },
 
@@ -176,7 +164,7 @@ const TabNavigator = createBottomTabNavigator(
                 padding: 10,
                 paddingLeft: 10,
                 height: height * 0.09,
-                position: 'absolute',
+
 
             },
         },
@@ -270,6 +258,12 @@ const MyDrawerNavigator = createDrawerNavigator({
         contentOptions: {
             activeBackgroundColor: '#F1F1F1',
             itemStyle: { paddingVertical: 15 },
+            labelStyle: {
+                fontFamily: 'Roboto-Regular',
+                fontSize: 14, fontWeight: 'normal'
+            },
+
+
         },
         drawerBackgroundColor: '#F1F1F1'
     })
@@ -289,7 +283,8 @@ const MainNavigator = createStackNavigator({
     AddExpenseScreen: { screen: AddExpenseScreen },
     AddProductScreen: { screen: AddProductScreen },
     AddProductScreen1: { screen: AddProductScreen1 },
-    AddProductDetailsScreen: { screen: AddProductDetailsScreen }
+    AddProductDetailsScreen: { screen: AddProductDetailsScreen },
+    Modal: { screen: Modal }
 },
     { headerMode: 'none' }
 );

@@ -77,7 +77,7 @@ const CommonStyles = StyleSheet.create({
         alignItems: 'center', marginTop: 30
     },
     buttonTxtPrimary: {
-        color: '#FFFFFF', fontFamily: 'Roboto-Medium', fontSize: 18
+        color: '#FFFFFF', fontFamily: 'Roboto-Medium', fontSize: 16
     }
     , buttonTxtSecondary: {
         color: '#6834B4', fontFamily: 'Roboto-Medium', fontSize: 18
@@ -92,7 +92,7 @@ const CommonStyles = StyleSheet.create({
         alignItems: 'center', marginTop: 20
     },
     customTextInput: {
-        fontFamily: 'Roboto-Regular', fontSize: 12, color: '#9B9B9B', alignSelf: 'flex-start', marginLeft: 20
+        fontFamily: 'Roboto-Regular', fontSize: 12, color: '#101010', alignSelf: 'flex-start', marginLeft: 20
     },
     homeViewStyle: {
         shadowRadius: 5,

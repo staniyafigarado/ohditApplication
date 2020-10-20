@@ -27,7 +27,7 @@ export default class ResetPassword extends Component {
             <View style={{ flex: 1, justifyContent: 'center', backgroundColor: '#F1F1F1', width: '100%', padding: 10 }}>
 
                 <Text style={{ color: '#6834B4', fontSize: 25, fontFamily: 'Montserrat-Bold', textAlign: 'center', marginBottom: 5 }}>Reset Link Has Been Sent</Text>
-                <Text style={CommonStyles.txtPrimary}>You will receive a rest link to your email address</Text>
+                <Text style={CommonStyles.txtPrimary}>You will receive a reset link to your email address</Text>
                 <Image source={email} style={{ width: '100%', height: 230, alignSelf: 'center' }}></Image>
             </View>)
         return (
@@ -57,17 +57,15 @@ export default class ResetPassword extends Component {
                                         placeholder={'Confirm Password '}></TextInput>
                                 </Neomorph>
                             </Neomorph>
-                            <Neomorph
-                                inner={false} // <- enable shadow inside of neomorph
-                                swapShadows // <- change zIndex of each shadow color
-                                style={CommonStyles.customButtonPrimary}
-                            >
-                                <TouchableOpacity
-                                    onPress={() => this.props.navigation.navigate('SigninScreen')}
-                                    style={{ paddingHorizontal: 90, paddingVertical: 10 }}>
+                            <TouchableOpacity onPress={() => this.props.navigation.navigate('SigninScreen')}>
+                                <Neomorph
+                                    inner={false} // <- enable shadow inside of neomorph
+                                    swapShadows // <- change zIndex of each shadow color
+                                    style={CommonStyles.customButtonPrimary}
+                                >
                                     <Text style={CommonStyles.buttonTxtPrimary}>Reset Password</Text>
-                                </TouchableOpacity>
-                            </Neomorph>
+                                </Neomorph>
+                            </TouchableOpacity>
                         </View>
 
                     </View>

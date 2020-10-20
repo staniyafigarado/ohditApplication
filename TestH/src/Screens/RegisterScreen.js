@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import { Shadow, Neomorph } from 'react-native-neomorph-shadows';
 import { CommonStyles } from '../SharedComponents/CustomStyles';
 export default class AlignItemsBasics extends Component {
@@ -53,12 +54,20 @@ export default class AlignItemsBasics extends Component {
                             swapShadows // <- change zIndex of each shadow color
                             style={CommonStyles.customButtonPrimary}
                         >
-                            <Text style={CommonStyles.buttonTxtPrimary}>Register</Text>
+                            <TouchableOpacity
+                                onPress={() => this.props.navigation.navigate('SigninScreen')}
+                                style={{ paddingVertical: 10, paddingHorizontal: 100 }}>
+                                <Text style={CommonStyles.buttonTxtPrimary}>Register</Text>
+                            </TouchableOpacity>
                         </Neomorph>
                     </View>
                     <View style={{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginTop: 30 }}>
                         <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12 }}>Already registered?</Text>
-                        <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, marginLeft: 5, color: '#512097' }}>sign In</Text>
+                        <TouchableOpacity
+                            onPress={() => this.props.navigation.navigate('SigninScreen')}
+                            style={{ padding: 7 }}>
+                            <Text style={{ fontFamily: 'Roboto-Medium', fontSize: 12, color: '#512097' }}>sign In</Text>
+                        </TouchableOpacity>
                     </View>
                 </View>
             </ScrollView>
